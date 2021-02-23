@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class App {
 
     public static int total(int[] userArray){
@@ -51,11 +53,9 @@ public class App {
 
     public static int[] reverse(int[] userArray){
         int arrayLength = userArray.length;
-        int reverseCounter = arrayLength -1;
         int[] returnArray = new int[arrayLength];
         for (int i = 0; i < arrayLength; i++) {
-            returnArray[reverseCounter] = userArray[i];
-            reverseCounter--;
+            returnArray[arrayLength - 1 - i] = userArray[i];
         }
         return returnArray;
     }
