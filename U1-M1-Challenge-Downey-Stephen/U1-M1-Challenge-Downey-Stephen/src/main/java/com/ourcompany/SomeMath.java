@@ -7,8 +7,7 @@ public class SomeMath {
     }
 
     public static double average5(int a, int b, int c, int d, int e){
-        double total = total5(a, b, c, d, e);
-        return total/5;
+        return (a + b + c + d + e)/5;
     }
 
     public static double largest5(double a, double b, double c, double d, double e){
@@ -27,5 +26,5 @@ public class SomeMath {
         System.out.println(average5(1, 3, 5, 7, 9));
         System.out.println(largest5(42.0, 35.1, 2.3, 40.2, 15.6));
     }
+
 }
-    

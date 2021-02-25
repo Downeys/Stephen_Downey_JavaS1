@@ -3,6 +3,7 @@ package com.ourcompany;
 import java.util.Scanner;
 
 public class ValidNumber {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int userInput;
@@ -15,4 +16,5 @@ public class ValidNumber {
         }while (userInput > 10  || userInput < 1);
         System.out.println(userInput);
     }
+
 }
