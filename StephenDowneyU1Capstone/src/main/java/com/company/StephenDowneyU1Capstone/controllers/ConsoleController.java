@@ -20,7 +20,7 @@ public class ConsoleController {
 
     @RequestMapping(value = "/console", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Console addConsole(@RequestBody Console console) {
+    public Console addConsole(@RequestBody @Valid Console console) {
         return service.addConsole(console);
     }
 

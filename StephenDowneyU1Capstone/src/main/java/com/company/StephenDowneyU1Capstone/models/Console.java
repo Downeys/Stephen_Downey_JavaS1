@@ -4,13 +4,13 @@ import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 public class Console extends Item{
-    @NotBlank
+    @NotBlank(message = "Invalid Console: model cannot be blank.")
     private String model;
-    @NotBlank
+    @NotBlank(message = "Invalid Console: manufacturer cannot be blank.")
     private String manufacturer;
-    @NotBlank
+    @NotBlank(message = "Invalid Console: memory amount cannot be blank.")
     private String memoryAmount;
-    @NotBlank
+    @NotBlank(message = "Invalid Console: processor cannot be blank.")
     private String processor;
 
     public Console() {

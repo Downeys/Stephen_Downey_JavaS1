@@ -4,13 +4,13 @@ import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 public class Game extends Item{
-    @NotBlank
+    @NotBlank(message = "Invalid Game: title cannot be blank.")
     private String title;
-    @NotBlank
+    @NotBlank(message = "Invalid Game: ESRB Rating cannot be blank.")
     private String esrbRating;
-    @NotBlank
+    @NotBlank(message = "Invalid Game: description cannot be blank.")
     private String description;
-    @NotBlank
+    @NotBlank(message = "Invalid Game: studio cannot be blank.")
     private String studio;
 
     public Game(){

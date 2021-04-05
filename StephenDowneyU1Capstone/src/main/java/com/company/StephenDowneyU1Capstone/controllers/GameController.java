@@ -20,7 +20,7 @@ public class GameController {
 
     @RequestMapping(value = "/game", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Game addGame(@RequestBody Game game){
+    public Game addGame(@RequestBody @Valid Game game){
         return service.addGame(game);
     }
 

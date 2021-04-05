@@ -37,7 +37,7 @@ public class ConsoleControllerTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp() throws Exception {
         setupServiceLayerMock();
     }
 
@@ -195,7 +195,7 @@ public class ConsoleControllerTest {
     }
 
     @Test
-    public void shouldReturnNotFoundStatusWhenInvalidConsoleIdIsPassedToUpdateDeleteOrGetByIdEndpoints() throws Exception{
+    public void shouldReturnNotFoundStatusWhenInvalidConsoleIdIsPassedToUpdateDeleteOrGetByIdEndpoints() throws Exception {
         //Arrange
         String test1 = "/console/4";
         String test2 = "/console/6";
@@ -226,8 +226,8 @@ public class ConsoleControllerTest {
 
         mockMvc.perform(
                 put("/console")
-                .content(test3)
-                .contentType(MediaType.APPLICATION_JSON)
+                        .content(test3)
+                        .contentType(MediaType.APPLICATION_JSON)
         )
                 .andDo(print())
                 .andExpect(status().isNotFound());
@@ -235,7 +235,7 @@ public class ConsoleControllerTest {
     }
 
     @Test
-    public void shouldGetConsoleByManufacturerAndReturnStatusOk() throws Exception{
+    public void shouldGetConsoleByManufacturerAndReturnStatusOk() throws Exception {
         //Arrange
         String test1 = "/console?manufacturer=Microsoft";
         String test2 = "/console?manufacturer=Sony";
@@ -294,7 +294,7 @@ public class ConsoleControllerTest {
     }
 
     @Test
-    public void shouldGetAllConsolesAndReturnStatusOk() throws Exception{
+    public void shouldGetAllConsolesAndReturnStatusOk() throws Exception {
         //Arrange
         String testUri = "/console";
 
@@ -343,7 +343,7 @@ public class ConsoleControllerTest {
     }
 
     @Test
-    public void shouldReturnStatusOkWhenSentValidConsole() throws Exception{
+    public void shouldReturnStatusOkWhenSentValidConsole() throws Exception {
         //Arrange
         Console inputConsole1 = new Console();
         inputConsole1.setModel("Playstation 5");
@@ -376,31 +376,31 @@ public class ConsoleControllerTest {
         //Act and Assert
         mockMvc.perform(
                 put("/console")
-                .content(inputJsonStringForTest1)
-                .contentType(MediaType.APPLICATION_JSON)
+                        .content(inputJsonStringForTest1)
+                        .contentType(MediaType.APPLICATION_JSON)
         )
                 .andDo(print())
                 .andExpect(status().isOk());
 
         mockMvc.perform(
                 put("/console")
-                .content(inputJsonStringForTest2)
-                .contentType(MediaType.APPLICATION_JSON)
+                        .content(inputJsonStringForTest2)
+                        .contentType(MediaType.APPLICATION_JSON)
         )
                 .andDo(print())
                 .andExpect(status().isOk());
 
         mockMvc.perform(
                 put("/console")
-                .content(inputJsonStringForTest3)
-                .contentType(MediaType.APPLICATION_JSON)
+                        .content(inputJsonStringForTest3)
+                        .contentType(MediaType.APPLICATION_JSON)
         )
                 .andDo(print())
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void shouldReturnStatusUnprocessableEntityWhenSentInValidConsole() throws Exception{
+    public void shouldReturnStatusUnprocessableEntityWhenSentInValidConsoleToAddOrUpdateEndpoints() throws Exception {
         //Arrange
         Console inputConsole1 = new Console();
         inputConsole1.setManufacturer("Sony");
@@ -454,6 +454,7 @@ public class ConsoleControllerTest {
         String inputJsonStringForTest6 = mapper.writeValueAsString(inputConsole6);
 
         //Act and Assert
+        //update endpoint
         mockMvc.perform(
                 put("/console")
                         .content(inputJsonStringForTest1)
@@ -505,10 +506,63 @@ public class ConsoleControllerTest {
         )
                 .andDo(print())
                 .andExpect(status().isUnprocessableEntity());
+
+        //Add endpoint
+        mockMvc.perform(
+                post("/console")
+                        .content(inputJsonStringForTest1)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/console")
+                        .content(inputJsonStringForTest2)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/console")
+                        .content(inputJsonStringForTest3)
+                        .contentType(MediaType.APPLICATION_JSON)
+
+
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/console")
+                        .content(inputJsonStringForTest4)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/console")
+                        .content(inputJsonStringForTest5)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/console")
+                        .content(inputJsonStringForTest6)
+                        .contentType(MediaType.APPLICATION_JSON)
+
+
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
     }
 
     @Test
-    public void shouldReturnStatusNoContentWhenPassedAValidIndexToDelete() throws Exception{
+    public void shouldReturnStatusNoContentWhenPassedAValidIndexToDelete() throws Exception {
         //Arrange
         String test1 = "/console/1";
         String test2 = "/console/2";

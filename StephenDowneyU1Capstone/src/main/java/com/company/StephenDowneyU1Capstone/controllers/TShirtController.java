@@ -20,7 +20,7 @@ public class TShirtController {
 
     @RequestMapping(value = "/tshirt", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public TShirt addTShirt(@RequestBody TShirt tShirt){
+    public TShirt addTShirt(@RequestBody @Valid TShirt tShirt){
         return service.addTShirt(tShirt);
     }
 

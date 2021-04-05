@@ -531,7 +531,7 @@ public class GameControllerTest {
     }
 
     @Test
-    public void shouldReturnStatusUnprocessableEntityWhenSentInValidGame() throws Exception{
+    public void shouldReturnStatusUnprocessableEntityWhenSentInvalidGameToUpdateOrAddEndpoints() throws Exception{
         //Arrange
         Game inputGame1 = new Game();
         inputGame1.setDescription("Epic installation in the Elder Scrolls series.");
@@ -585,6 +585,7 @@ public class GameControllerTest {
         String inputJsonStringForTest6 = mapper.writeValueAsString(inputGame6);
 
         //Act and Assert
+        //update endpoint
         mockMvc.perform(
                 put("/game")
                         .content(inputJsonStringForTest1)
@@ -629,6 +630,59 @@ public class GameControllerTest {
 
         mockMvc.perform(
                 put("/game")
+                        .content(inputJsonStringForTest6)
+                        .contentType(MediaType.APPLICATION_JSON)
+
+
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        //add endpoint
+        mockMvc.perform(
+                post("/game")
+                        .content(inputJsonStringForTest1)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/game")
+                        .content(inputJsonStringForTest2)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/game")
+                        .content(inputJsonStringForTest3)
+                        .contentType(MediaType.APPLICATION_JSON)
+
+
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/game")
+                        .content(inputJsonStringForTest4)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/game")
+                        .content(inputJsonStringForTest5)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/game")
                         .content(inputJsonStringForTest6)
                         .contentType(MediaType.APPLICATION_JSON)
 

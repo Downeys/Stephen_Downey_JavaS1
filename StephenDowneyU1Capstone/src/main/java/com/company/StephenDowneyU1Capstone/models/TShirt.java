@@ -4,11 +4,11 @@ import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 public class TShirt extends Item{
-    @NotBlank
+    @NotBlank(message = "Invalid T-Shirt: size cannot be blank.")
     private String size;
-    @NotBlank
+    @NotBlank(message = "Invalid T-Shirt: color cannot be blank.")
     private String color;
-    @NotBlank
+    @NotBlank(message = "Invalid T-Shirt: description cannot be blank.")
     private String description;
 
     public TShirt() {

@@ -7,21 +7,21 @@ import java.util.Objects;
 
 public class Invoice {
     private Integer invoiceId;
-    @NotBlank
+    @NotBlank(message = "Invalid Order: name cannot be blank.")
     private String name;
-    @NotBlank
+    @NotBlank(message = "Invalid Order: street cannot be blank.")
     private String street;
-    @NotBlank
+    @NotBlank(message = "Invalid Order: city cannot be blank.")
     private String city;
-    @NotBlank
+    @NotBlank(message = "Invalid Order: state cannot be blank.")
     private String state;
-    @NotBlank
+    @NotBlank(message = "Invalid Order: zip code cannot be blank.")
     private String zipcode;
-    @NotBlank
+    @NotBlank(message = "Invalid Order: item type cannot be blank.")
     private String itemType;
     private Integer itemId;
     private BigDecimal unitPrice;
-    @Positive
+    @Positive(message = "Invalid Order: quantity cannot be blank or zero.")
     private Integer quantity;
     private BigDecimal subtotal;
     private BigDecimal tax;

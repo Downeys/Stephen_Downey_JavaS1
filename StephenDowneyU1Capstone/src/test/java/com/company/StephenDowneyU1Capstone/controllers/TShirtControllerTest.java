@@ -439,7 +439,7 @@ public class TShirtControllerTest {
     }
 
     @Test
-    public void shouldReturnStatusUnprocessableEntityWhenSentInValidTShirt() throws Exception{
+    public void shouldReturnStatusUnprocessableEntityWhenSentInValidTShirtToUpdateOrAddEndpoints() throws Exception{
         //Arrange
         TShirt inputTShirt1 = new TShirt();
         inputTShirt1.setColor("Green");
@@ -480,6 +480,7 @@ public class TShirtControllerTest {
         String inputJsonStringForTest5 = mapper.writeValueAsString(inputTShirt5);
 
         //Act and Assert
+        //update endpoint
         mockMvc.perform(
                 put("/tshirt")
                         .content(inputJsonStringForTest1)
@@ -521,6 +522,50 @@ public class TShirtControllerTest {
         )
                 .andDo(print())
                 .andExpect(status().isUnprocessableEntity());
+
+        //add endpoint
+        mockMvc.perform(
+                post("/tshirt")
+                        .content(inputJsonStringForTest1)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/tshirt")
+                        .content(inputJsonStringForTest2)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/tshirt")
+                        .content(inputJsonStringForTest3)
+                        .contentType(MediaType.APPLICATION_JSON)
+
+
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/tshirt")
+                        .content(inputJsonStringForTest4)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
+        mockMvc.perform(
+                post("/tshirt")
+                        .content(inputJsonStringForTest5)
+                        .contentType(MediaType.APPLICATION_JSON)
+        )
+                .andDo(print())
+                .andExpect(status().isUnprocessableEntity());
+
 
     }
 

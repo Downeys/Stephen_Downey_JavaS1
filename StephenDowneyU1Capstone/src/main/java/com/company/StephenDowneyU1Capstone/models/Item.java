@@ -7,9 +7,9 @@ import java.util.Objects;
 public abstract class Item {
     private Integer itemId;
     private String itemType;
-    @PositiveOrZero
+    @PositiveOrZero(message = "Invalid Item: quantity must be positive or zero.")
     private Integer quantity;
-    @PositiveOrZero
+    @PositiveOrZero(message = "Invalid Item: price must be positive or zero.")
     private BigDecimal price;
 
     public Integer getItemId() {
