@@ -1,0 +1,140 @@
+openapi: 3.0.1
+info:
+  title: stwitter service
+  version: v0
+servers:
+  - url: 'http://localhost:8999'
+    description: Generated server url
+paths:
+  /posts:
+    post:
+      tags:
+        - stwitter-controller
+      operationId: savePost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostViewModel'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PostViewModel'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomErrorResponse'
+  '/posts/{id}':
+    get:
+      tags:
+        - stwitter-controller
+      operationId: getPost
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PostViewModel'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomErrorResponse'
+  '/posts/user/{posterName}':
+    get:
+      tags:
+        - stwitter-controller
+      operationId: getPostsByPosterName
+      parameters:
+        - name: posterName
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PostViewModel'
+        '422':
+          description: Unprocessable Entity
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomErrorResponse'
+components:
+  schemas:
+    CustomErrorResponse:
+      type: object
+      properties:
+        errorMessage:
+          type: string
+        status:
+          type: integer
+          format: int32
+        errorCode:
+          type: string
+        localDateTime:
+          type: string
+          format: date-time
+    Comment:
+      type: object
+      properties:
+        commentId:
+          type: integer
+          format: int32
+        postId:
+          type: integer
+          format: int32
+        createDate:
+          type: string
+          format: date
+        commenterName:
+          type: string
+        comment:
+          type: string
+    PostViewModel:
+      required:
+        - postDate
+        - posterName
+      type: object
+      properties:
+        postId:
+          type: integer
+          format: int32
+        postContent:
+          type: string
+        postDate:
+          type: string
+          format: date
+        posterName:
+          type: string
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
