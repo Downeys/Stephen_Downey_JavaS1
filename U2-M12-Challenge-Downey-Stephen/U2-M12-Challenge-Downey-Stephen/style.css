@@ -1,0 +1,8 @@
+.footer{
+  position: relative;
+  bottom: -10px;
+}
+
+.btn-pill{
+  border-radius: 16px;
+}
