@@ -5,7 +5,7 @@
  */
 
 const api = {
-  async index (endpoint = 'http://localhost:8080/game') {
+  async index (endpoint) {
     const res = await fetch(endpoint)
     return res.json()
   },
@@ -23,6 +23,18 @@ const api = {
   },
   async getByRating (rating, endpoint = 'http://localhost:8080/game') {
     const res = await fetch(`${endpoint}?rating=${rating}`)
+    return res.json()
+  },
+  async getByColor (color, endpoint = 'http://localhost:8080/tshirt') {
+    const res = await fetch(`${endpoint}?color=${color}`)
+    return res.json()
+  },
+  async getBySize (size, endpoint = 'http://localhost:8080/tshirt') {
+    const res = await fetch(`${endpoint}?size=${size}`)
+    return res.json()
+  },
+  async getByManufacturer (manufacturer, endpoint = 'http://localhost:8080/console') {
+    const res = await fetch(`${endpoint}?manufacturer=${manufacturer}`)
     return res.json()
   },
   async create (newGame, endpoint = 'http://localhost:8080/game') {

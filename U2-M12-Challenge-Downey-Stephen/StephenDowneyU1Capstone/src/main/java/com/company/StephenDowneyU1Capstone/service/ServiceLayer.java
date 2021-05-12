@@ -162,7 +162,7 @@ public class ServiceLayer{
 
                 returnVal = game;
                 break;
-            case("T-Shirts"):
+            case("TShirts"):
                 TShirt tShirt = tShirtDao.findTShirt(itemId);;
 
                 if(quantity > tShirt.getQuantity()){

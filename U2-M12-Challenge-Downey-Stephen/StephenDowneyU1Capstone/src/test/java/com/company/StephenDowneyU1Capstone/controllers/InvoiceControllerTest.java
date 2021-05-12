@@ -61,7 +61,7 @@ public class InvoiceControllerTest {
         inputInvoice2.setCity("Other City");
         inputInvoice2.setState("OR");
         inputInvoice2.setZipcode("98765");
-        inputInvoice2.setItemType("T-Shirts");
+        inputInvoice2.setItemType("TShirts");
         inputInvoice2.setItemId(1);
         inputInvoice2.setQuantity(2);
 
@@ -228,7 +228,7 @@ public class InvoiceControllerTest {
         inputInvoice2.setCity("Other City");
         inputInvoice2.setState("OR");
         inputInvoice2.setZipcode("98765");
-        inputInvoice2.setItemType("T-Shirts");
+        inputInvoice2.setItemType("TShirts");
         inputInvoice2.setItemId(1);
         inputInvoice2.setQuantity(2);
 
@@ -255,7 +255,7 @@ public class InvoiceControllerTest {
         inputInvoice5.setStreet("321 Other Dr.");
         inputInvoice5.setCity("Other City");
         inputInvoice5.setState("OR");
-        inputInvoice5.setItemType("T-Shirts");
+        inputInvoice5.setItemType("TShirts");
         inputInvoice5.setItemId(1);
         inputInvoice5.setQuantity(2);
 
@@ -449,7 +449,7 @@ public class InvoiceControllerTest {
         inputInvoice2.setCity("Other City");
         inputInvoice2.setState("OR");
         inputInvoice2.setZipcode("98765");
-        inputInvoice2.setItemType("T-Shirts");
+        inputInvoice2.setItemType("TShirts");
         inputInvoice2.setItemId(1);
         inputInvoice2.setQuantity(2);
 
