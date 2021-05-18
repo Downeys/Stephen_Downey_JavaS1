@@ -106,7 +106,7 @@ function Main() {
         <Router>
             <Nav variant="pills" className='justify-content-end'>
                 <Nav.Item>
-                    <NavLink to='/' className="nav-link" activeClassName="active" active>Encounters</NavLink>
+                    <NavLink to='/' className="nav-link" activeClassName="active">Encounters</NavLink>
                 </Nav.Item>
                 <Nav.Item>
                     <NavLink to='/investigators' className="nav-link" activeClassName="active">Investigators</NavLink>
