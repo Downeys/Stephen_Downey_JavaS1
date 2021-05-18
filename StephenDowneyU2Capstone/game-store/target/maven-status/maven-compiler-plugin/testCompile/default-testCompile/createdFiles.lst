@@ -1,0 +1,12 @@
+com\company\gamestore\dao\InvoiceDaoJdbcTemplateImplTest.class
+com\company\gamestore\controller\TShirtControllerTest.class
+com\company\gamestore\dao\TShirtDaoJdbcTemplateImplTest.class
+com\company\gamestore\dao\ConsoleDaoJdbcTemplateImplTest.class
+com\company\gamestore\dao\GameDaoJdbcTemplateImplTest.class
+com\company\gamestore\controller\GameControllerTest.class
+com\company\gamestore\controller\InvoiceControllerTest.class
+com\company\gamestore\service\GameStoreServiceLayerTest.class
+com\company\gamestore\dao\ProcessingFeeDaoJdbcTemplateImplTest.class
+com\company\gamestore\dao\TaxDaoJdbcTemplateImplTest.class
+com\company\gamestore\controller\ConsoleControllerTest.class
+com\company\gamestore\GamestoreApplicationTests.class
