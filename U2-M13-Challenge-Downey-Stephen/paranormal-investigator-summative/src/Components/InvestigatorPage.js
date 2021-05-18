@@ -1,7 +1,6 @@
 import { Container, Row, Button, Col } from 'react-bootstrap'
 import { useState } from 'react'
 import InvestigatorCard from './InvestigatorCard'
-import InvestigatorForm from './InvestigatorForm'
 import InvestigatorModal from './InvestigatorModal'
 
 function InvestigatorPage({ investigatorList, notify}) {
